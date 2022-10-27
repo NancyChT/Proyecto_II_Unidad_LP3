@@ -7,6 +7,9 @@ namespace Vista
             InitializeComponent();
         }
 
-        
+        private void InitializeComponent()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
