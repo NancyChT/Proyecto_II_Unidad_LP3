@@ -128,21 +128,20 @@ namespace Datos
             bool elimino = false;
             try
             {
-                string sql = "DELETE FROM usuario Codigo = @Codigo;";
+                string sql = "DELETE FROM usuario WHERE Codigo = @Codigo;";
                 using (MySqlConnection _conexion = new MySqlConnection(CadenaConexion.Cadena))
                 {
                     await _conexion.OpenAsync();
                     using (MySqlCommand comando = new MySqlCommand(sql, _conexion))
                     {
                         comando.CommandType = System.Data.CommandType.Text;
-                        comando.Parameters.Add("@Codigo", MySqlDbType.VarChar, 20).Value = codigo;
-                        
+                        comando.Parameters.Add("@Codigo", MySqlDbType.VarChar, 20).Value = codigo;   
                         await comando.ExecuteNonQueryAsync();
                         elimino = true;
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
             }
             return elimino;
