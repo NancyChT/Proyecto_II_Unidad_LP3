@@ -37,11 +37,15 @@ namespace Vista
 
             UsuarioDatos userDatos = new UsuarioDatos();
 
+
             bool valido = await userDatos.LoginAsync(CodigoUsuariotextBox.Text, ClavetextBox.Text);
 
             if (valido)
             {
-                //Menu
+                Menu Formulario = new Menu();
+                Hide();
+                Formulario.Show();
+
             }
             else
             {
